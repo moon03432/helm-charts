@@ -2,18 +2,33 @@ apiVersion: v1
 entries:
   busybox:
   - apiVersion: v1
-    created: 2017-08-08T09:58:35.996759563+08:00
+    created: 2017-08-08T15:54:44.401991461+08:00
     description: A Helm chart for Kubernetes
     digest: 1f1337f5f02484b969c6ad3e4d7961603c5d8d33fab2b6f9d0f8d319493a296e
     name: busybox
     urls:
     - busybox-0.1.0.tgz
     version: 0.1.0
+  helm-repo:
+  - appVersion: "2.4"
+    created: 2017-08-08T15:54:44.402297421+08:00
+    description: Apache httpd served as Helm repository
+    digest: e023fb97441cac388eb5ac239f99d073af467e5d5b50dda8d05d6f90dbbb5d17
+    keywords:
+    - helm
+    - repository
+    maintainers:
+    - email: huangyue18@wanda.cn
+      name: huang yue
+    name: helm-repo
+    urls:
+    - helm-repo-0.1.0.tgz
+    version: 0.1.0
   kubernetes-dashboard:
   - appVersion: 1.6.3
-    created: 2017-08-08T09:58:35.997062559+08:00
+    created: 2017-08-08T15:54:44.402872984+08:00
     description: General-purpose web UI for Kubernetes clusters
-    digest: b6d275ee32eba07ce0842f811df529cca797233fdbcd95a3f5408cdb23fcc388
+    digest: 952213a2acc82e06a902c2c3f67cd0cb30f8e390ee8b355307f89d3376e19b50
     keywords:
     - kubernetes
     - dashboard
@@ -24,4 +39,4 @@ entries:
     urls:
     - kubernetes-dashboard-0.1.2.tgz
     version: 0.1.2
-generated: 2017-08-08T09:58:35.996380001+08:00
+generated: 2017-08-08T15:54:44.401372947+08:00

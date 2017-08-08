@@ -1,0 +1,10 @@
+appVersion: 2.4
+description: Apache httpd served as Helm repository
+keywords:
+- helm
+- repository
+maintainers:
+- email: huangyue18@wanda.cn
+  name: huang yue
+name: helm-repo
+version: 0.1.0

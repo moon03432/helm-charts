@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helm-repo
+  namespace: kube-system
+  labels:
+    app: {{ template "name" . }}
+    heritage: "{{ .Release.Service }}"
+    release: "{{ .Release.Name }}"
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ template "name" . }}
+        heritage: "{{ .Release.Service }}"
+        release: "{{ .Release.Name }}"
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    spec:
+      imagePullSecrets:
+      - name: harbor-secret
+      containers:
+      - name: httpd
+        image: "10.199.192.16/library/httpd:2.4"
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 30
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        volumeMounts:
+          - mountPath: /usr/local/apache2/htdocs/charts
+            name: charts
+      volumes:
+        - name: charts
+          persistentVolumeClaim:
+            claimName: cephfs-charts

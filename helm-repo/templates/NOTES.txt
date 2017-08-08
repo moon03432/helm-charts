@@ -1,0 +1,14 @@
+*********************************************************************************
+*** PLEASE BE PATIENT: helm-repository may take a few minutes to install ***
+*********************************************************************************
+
+From outside the cluster, the server URL(s) are:
+     http://{{ .Values.ingress.host }}/charts
+
+Verify the Helm chart repository by running:
+  curl http://{{ .Values.ingress.host }}/charts/index.yaml
+
+Once verified, add the Helm chart repository by:
+  helm repo add k8s http://{{ .Values.ingress.host }}/charts
+
+
