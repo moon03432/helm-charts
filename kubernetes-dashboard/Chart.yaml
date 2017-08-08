@@ -1,0 +1,10 @@
+appVersion: 1.6.3
+description: General-purpose web UI for Kubernetes clusters
+keywords:
+- kubernetes
+- dashboard
+maintainers:
+- email: huangyue18@wanda.cn
+  name: huang yue
+name: kubernetes-dashboard
+version: 0.1.2
