@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: kubernetes-dashboard
+  name: "kubernetes-dashboard"
   labels:
-    app: {{ template "name" . }}
+    app: {{ template "kubernetes-dashboard.name" . }}
     heritage: "{{ .Release.Service }}"
     release: "{{ .Release.Name }}"
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
@@ -18,26 +18,21 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "name" . }}
+        app: {{ template "kubernetes-dashboard.name" . }}
         heritage: "{{ .Release.Service }}"
         release: "{{ .Release.Name }}"
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         kubernetes.io/cluster-service: "true"
     spec:
-      imagePullSecrets:
-      - name: harbor-secret
-      serviceAccountName: dashboard
+      serviceAccountName: {{ if .Values.rbac.create }}{{ template "kubernetes-dashboard.fullname" . }}{{ else }}"{{ .Values.rbac.serviceAccountName }}"{{ end }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 10 }}
       containers:
-      - name: kubernetes-dashboard
-        image: "10.199.192.16/kubernetes/kubernetes-dashboard-amd64:v1.6.3"
-        imagePullPolicy: IfNotPresent
+      - name: main
+        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         resources:
-          limits:
-            cpu: 100m
-            memory: 50Mi
-          requests:
-            cpu: 100m
-            memory: 50Mi
+{{ toYaml .Values.resources | indent 10 }}
         livenessProbe:
           failureThreshold: 3
           httpGet:

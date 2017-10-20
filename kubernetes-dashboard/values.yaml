@@ -2,7 +2,30 @@
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
 # name: value
+
+image: 10.199.192.16/kubernetes/kubernetes-dashboard-amd64
+imageTag: "v1.7.0"
+imagePullPolicy: "IfNotPresent"
+
+nodeSelector: {}
+
+httpPort: 80
+
+serviceType: ClusterIP
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 50Mi
+  requests:
+    cpu: 100m
+    memory: 50Mi
+
 ingress:
+  ## If true, Kubernetes Dashboard Ingress will be created.
+  ##
+  enabled: true
+
   ## Kubernetes Dashboard Ingress annotations
   ##
   # annotations:
@@ -12,7 +35,8 @@ ingress:
   ## Kubernetes Dashboard Ingress hostnames
   ## Must be provided if Ingress is enabled
   ##
-  host: dashboard.kubernetes.wanda.cn
+  hosts:
+    - dashboard.kubernetes.wanda.cn
 
   ## Kubernetes Dashboard Ingress TLS configuration
   ## Secrets must be manually created in the namespace
@@ -21,3 +45,12 @@ ingress:
   #   - secretName: kubernetes-dashboard-tls
   #     hosts:
   #       - kubernetes-dashboard.domain.com
+
+rbac:
+  ## If true, create & use RBAC resources
+  #
+  create: false
+
+  ## Ignored if rbac.create is true
+  #
+  serviceAccountName: dashboard
