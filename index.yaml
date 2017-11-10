@@ -69,4 +69,18 @@ entries:
     urls:
     - mysql-0.2.9.tgz
     version: 0.2.9
-generated: 2017-09-29T10:00:17.254438199+08:00
+  rstudio:
+  - created: 2017-10-18T01:08:56.447806646+08:00
+    description: A R language tool named rstudio
+    digest: 60ee22eb0edb31b58bc214e627a83a3b5a3d0ae88acb29fc7202fabb682c57c9
+    home: https://github.com/rstudio
+    maintainers:
+    - email: zhuqibs@163.com
+      name: rockzhu
+    name: rstudio
+    sources:
+    - https://github.com/rstudio
+    urls:
+    - rstudio-1.0.0.tgz
+    version: 1.0.0
+generated: 2017-10-18T01:08:56.447249352+08:00
