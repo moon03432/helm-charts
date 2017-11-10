@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   busybox:
   - apiVersion: v1
-    created: 2017-09-29T10:00:17.255970747+08:00
+    created: 2017-11-10T16:14:39.186879097+08:00
     description: A Helm chart for Kubernetes
     digest: c353781074aedde201c61d4a91111c8f1e83ea7d18e4b4e05e87f0259ce500fe
     name: busybox
@@ -10,7 +10,7 @@ entries:
     - busybox-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: 2017-09-29T10:00:17.255453792+08:00
+    created: 2017-11-10T16:14:39.18616787+08:00
     description: A Helm chart for Kubernetes
     digest: 1f1337f5f02484b969c6ad3e4d7961603c5d8d33fab2b6f9d0f8d319493a296e
     name: busybox
@@ -19,7 +19,7 @@ entries:
     version: 0.1.0
   helm-repo:
   - appVersion: "2.4"
-    created: 2017-09-29T10:00:17.256935423+08:00
+    created: 2017-11-10T16:14:39.187707085+08:00
     description: Apache httpd served as Helm repository
     digest: e023fb97441cac388eb5ac239f99d073af467e5d5b50dda8d05d6f90dbbb5d17
     keywords:
@@ -34,7 +34,7 @@ entries:
     version: 0.1.0
   kubernetes-dashboard:
   - appVersion: 1.6.3
-    created: 2017-09-29T10:00:17.257840126+08:00
+    created: 2017-11-10T16:14:39.188411331+08:00
     description: General-purpose web UI for Kubernetes clusters
     digest: 952213a2acc82e06a902c2c3f67cd0cb30f8e390ee8b355307f89d3376e19b50
     keywords:
@@ -48,7 +48,7 @@ entries:
     - kubernetes-dashboard-0.1.2.tgz
     version: 0.1.2
   mysql:
-  - created: 2017-09-29T10:00:17.258538157+08:00
+  - created: 2017-11-10T16:14:39.189522343+08:00
     description: Fast, reliable, scalable, and easy to use open-source relational
       database system.
     digest: 18c572dc687f06de4fa336adb02ab405c4695f542d012e2df87a7d28b9ba7be3
@@ -69,4 +69,13 @@ entries:
     urls:
     - mysql-0.2.9.tgz
     version: 0.2.9
-generated: 2017-09-29T10:00:17.254438199+08:00
+  zeppelin:
+  - apiVersion: v1
+    created: 2017-11-10T16:14:39.189923148+08:00
+    description: Helm chart for Zeppelin
+    digest: 18603ea8b74bd9aee269aa8c400485496a9c5045ef4486b686fab41126edd01b
+    name: zeppelin
+    urls:
+    - zeppelin-1.0.0.tgz
+    version: 1.0.0
+generated: 2017-11-10T16:14:39.184124647+08:00
