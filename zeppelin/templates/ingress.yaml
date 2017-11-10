@@ -1,0 +1,21 @@
+{{- $servicePort := .Values.service.externalPort -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: zeppelin-{{ .Values.user }}
+  namespace: bigdata
+  labels:
+    app: zeppelin
+    user: {{ .Values.user }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: zeppelin-{{ .Values.user }}
+              servicePort: {{ $servicePort }}
