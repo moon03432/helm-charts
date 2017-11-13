@@ -1,0 +1,74 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jupyter-{{ .Values.user }}
+  namespace: bigdata
+  labels:
+    app: jupyter
+    user: {{ .Values.user }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: jupyter
+      user: {{ .Values.user }}
+  template:
+    metadata:
+      labels:
+        app: jupyter
+        user: {{ .Values.user }}
+        host_network: "true"
+        port: "{{ .Values.port }}"
+        release: {{ .Release.Name }}
+    spec:
+      hostNetwork: true
+      containers:
+        - name: jupyter
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: JUPYTER_USER
+            value: {{ .Values.user }}
+          - name: JUPYTER_PORT
+            value: "{{ .Values.port }}"
+          - name: TZ
+            value: "Asia/Shanghai"
+          ports:
+            - containerPort: {{ .Values.port }}
+              hostPort: {{ .Values.port }}
+          volumeMounts:
+            - mountPath: "/etc/localtime"
+              name: localtime
+              readOnly: true
+            - mountPath: "/opt"
+              name: cephfs-bigdata
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.port }}
+              scheme: HTTP
+            initialDelaySeconds: 60
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.port }}
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+      volumes:
+      - name: localtime
+        hostPath:
+          path: "/etc/localtime"
+      - name: cephfs-bigdata
+        persistentVolumeClaim:
+          claimName: cephfs-bigdata-claim
