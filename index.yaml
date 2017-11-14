@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   busybox:
   - apiVersion: v1
-    created: 2017-11-13T10:25:16.115413531+08:00
+    created: 2017-11-14T17:14:19.361437869+08:00
     description: A Helm chart for Kubernetes
     digest: c353781074aedde201c61d4a91111c8f1e83ea7d18e4b4e05e87f0259ce500fe
     name: busybox
@@ -10,7 +10,7 @@ entries:
     - busybox-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: 2017-11-13T10:25:16.115037029+08:00
+    created: 2017-11-14T17:14:19.361113847+08:00
     description: A Helm chart for Kubernetes
     digest: 1f1337f5f02484b969c6ad3e4d7961603c5d8d33fab2b6f9d0f8d319493a296e
     name: busybox
@@ -19,7 +19,7 @@ entries:
     version: 0.1.0
   helm-repo:
   - appVersion: "2.4"
-    created: 2017-11-13T10:25:16.11592657+08:00
+    created: 2017-11-14T17:14:19.361891287+08:00
     description: Apache httpd served as Helm repository
     digest: e023fb97441cac388eb5ac239f99d073af467e5d5b50dda8d05d6f90dbbb5d17
     keywords:
@@ -34,16 +34,16 @@ entries:
     version: 0.1.0
   jupyter:
   - apiVersion: v1
-    created: 2017-11-13T10:25:16.116144755+08:00
+    created: 2017-11-14T17:14:19.362241794+08:00
     description: Helm chart for Jupyter
-    digest: c93684d24ef5f9bace44d50aefd3af2da987f3af1e41df3d8245c1369a6eb09d
+    digest: cac31c92ad1b44a131e0c80a5495e4fec6bf5b7db66888173c367cdc2370aa73
     name: jupyter
     urls:
     - jupyter-1.0.0.tgz
     version: 1.0.0
   kubernetes-dashboard:
   - appVersion: 1.6.3
-    created: 2017-11-13T10:25:16.116680901+08:00
+    created: 2017-11-14T17:14:19.362714725+08:00
     description: General-purpose web UI for Kubernetes clusters
     digest: 952213a2acc82e06a902c2c3f67cd0cb30f8e390ee8b355307f89d3376e19b50
     keywords:
@@ -57,7 +57,7 @@ entries:
     - kubernetes-dashboard-0.1.2.tgz
     version: 0.1.2
   mysql:
-  - created: 2017-11-13T10:25:16.11765531+08:00
+  - created: 2017-11-14T17:14:19.363925062+08:00
     description: Fast, reliable, scalable, and easy to use open-source relational
       database system.
     digest: 18c572dc687f06de4fa336adb02ab405c4695f542d012e2df87a7d28b9ba7be3
@@ -79,7 +79,7 @@ entries:
     - mysql-0.2.9.tgz
     version: 0.2.9
   rstudio:
-  - created: 2017-11-13T10:25:16.118171437+08:00
+  - created: 2017-11-14T17:14:19.364398158+08:00
     description: A R language tool named rstudio
     digest: 60ee22eb0edb31b58bc214e627a83a3b5a3d0ae88acb29fc7202fabb682c57c9
     home: https://github.com/rstudio
@@ -94,11 +94,11 @@ entries:
     version: 1.0.0
   zeppelin:
   - apiVersion: v1
-    created: 2017-11-13T10:25:16.118648052+08:00
+    created: 2017-11-14T17:14:19.364814402+08:00
     description: Helm chart for Zeppelin
-    digest: 18603ea8b74bd9aee269aa8c400485496a9c5045ef4486b686fab41126edd01b
+    digest: cb2ca6cd934a82096cd00efe947a665af63041cfa0bb216a206b9a1d390e3ddf
     name: zeppelin
     urls:
     - zeppelin-1.0.0.tgz
     version: 1.0.0
-generated: 2017-11-13T10:25:16.114442572+08:00
+generated: 2017-11-14T17:14:19.35963526+08:00

@@ -6,7 +6,7 @@ port: 10051
 image:
   repository: 10.199.192.16/jupyter/sso_jupyter
   tag: centos
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 service:
   type: ClusterIP
   externalPort: 8080
