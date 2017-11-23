@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: prometheus
+    version: "2.0"
+  name: prometheus
+  namespace: monitor
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prometheus
+        version: "2.0"
+    spec:
+      serviceAccountName: prometheus
+      securityContext:
+        runAsUser: 0
+      containers:
+      - image: 10.199.192.16/prometheus/prometheus:v2.0.0
+        imagePullPolicy: IfNotPresent
+        name: prometheus
+        command:
+        - "/bin/prometheus"
+        args:
+        - "--config.file=/etc/prometheus/prometheus-config.yaml"
+        - "--storage.tsdb.path=/prometheus"
+        - "--storage.tsdb.retention=168h"
+        ports:
+        - containerPort: 9090
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/prometheus"
+          name: prometheus-data
+        - mountPath: "/etc/prometheus"
+          name: config-volume
+        - mountPath: "/etc/localtime"
+          name: localtime
+        resources:
+          requests:
+            cpu: 4
+            memory: 5G
+          limits:
+            cpu: 4
+            memory: 5G
+      volumes:
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+      - name: config-volume
+        configMap:
+          name: prometheus-config
+      - name: prometheus-data
+        persistentVolumeClaim:
+          claimName: prometheus-claim

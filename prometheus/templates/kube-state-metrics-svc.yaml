@@ -1,0 +1,30 @@
+{{- if .Values.kubeStateMetrics.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+{{- if .Values.kubeStateMetrics.service.annotations }}
+  annotations:
+{{ toYaml .Values.kubeStateMetrics.service.annotations | indent 4 }}
+{{- end }}
+  labels:
+    app: {{ template "prometheus.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: "{{ .Values.kubeStateMetrics.name }}"
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+{{- if .Values.kubeStateMetrics.service.labels }}
+{{ toYaml .Values.kubeStateMetrics.service.labels | indent 4 }}
+{{- end }}
+  name: {{ template "prometheus.kubeStateMetrics.fullname" . }}
+spec:
+  ports:
+    - name: http
+      port: {{ .Values.kubeStateMetrics.service.servicePort }}
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: {{ template "prometheus.name" . }}
+    component: "{{ .Values.kubeStateMetrics.name }}"
+    release: {{ .Release.Name }}
+  type: "{{ .Values.kubeStateMetrics.service.type }}"
+{{- end }}
