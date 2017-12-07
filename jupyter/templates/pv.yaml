@@ -1,0 +1,47 @@
+{{- if .Values.pv.enable -}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cephfs-jupyter-{{ .Values.user }}
+  labels:
+    app: jupyter
+    user: {{ .Values.user }}
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 100Gi
+  cephfs:
+    monitors:
+    {{- if (eq "prod" .Values.env ) }}
+    - 10.214.128.105:6789
+    - 10.214.128.106:6789
+    - 10.214.128.107:6789
+    {{- else }}
+    - 10.214.160.5:6789
+    - 10.214.160.6:6789
+    - 10.214.160.7:6789
+    {{- end }}
+    path: /bigdata/jupyter/python-libs/{{ .Values.user }}
+    secretRef:
+      name: cephfs-secret
+    user: admin
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cephfs-jupyter-{{ .Values.user }}
+  namespace: bigdata
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 100G
+  selector:
+    matchLabels:
+      app: jupyter
+      user: {{ .Values.user }}
+  volumeName: cephfs-jupyter-{{ .Values.user }}
+{{- end -}}

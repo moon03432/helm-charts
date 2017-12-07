@@ -1,9 +1,9 @@
 # Default values for zeppelin.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-user: yuanbowen1
-allowed_users: yuanbowen1,huangyue18
-port: 8091
+user: ourui
+allowed_users: ourui,admin
+port: 8120
 image:
   repository: 10.199.192.16/zeppelin/sso_zeppelin
   tag: centos
@@ -12,7 +12,7 @@ service:
   type: ClusterIP
   externalPort: 8080
 ingress:
-  host: zeppelin-yuanbowen1.test-cloud.bigdata.wanda.cn
+  host: zeppelin-ourui.cloud.bigdata.wanda.cn
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little

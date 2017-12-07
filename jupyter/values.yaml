@@ -2,7 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 user: yuanbowen1
-port: 10051
+port: 10092
+env: test
 image:
   repository: 10.199.192.16/jupyter/sso_jupyter
   tag: centos
@@ -12,6 +13,9 @@ service:
   externalPort: 8080
 ingress:
   host: jupyter-yuanbowen1.test-cloud.bigdata.wanda.cn
+pv:
+  enable: false
+  mountPath: /usr/local/python-libs
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little

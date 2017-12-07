@@ -44,6 +44,10 @@ spec:
               readOnly: true
             - mountPath: "/opt"
               name: cephfs-bigdata
+            {{- if .Values.pv.enable }}
+            - mountPath: {{ .Values.pv.mountPath }}
+              name: python-libs
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -72,3 +76,8 @@ spec:
       - name: cephfs-bigdata
         persistentVolumeClaim:
           claimName: cephfs-bigdata-claim
+      {{- if .Values.pv.enable }}
+      - name: python-libs
+        persistentVolumeClaim:
+          claimName: cephfs-jupyter-{{ .Values.user }}
+      {{- end }}
