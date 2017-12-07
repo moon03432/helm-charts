@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   busybox:
   - apiVersion: v1
-    created: 2017-11-23T10:27:32.071601877+08:00
+    created: 2017-12-07T15:39:14.357852136+08:00
     description: A Helm chart for Kubernetes
     digest: c353781074aedde201c61d4a91111c8f1e83ea7d18e4b4e05e87f0259ce500fe
     name: busybox
@@ -10,7 +10,7 @@ entries:
     - busybox-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: 2017-11-23T10:27:32.070426497+08:00
+    created: 2017-12-07T15:39:14.357448625+08:00
     description: A Helm chart for Kubernetes
     digest: 1f1337f5f02484b969c6ad3e4d7961603c5d8d33fab2b6f9d0f8d319493a296e
     name: busybox
@@ -19,7 +19,7 @@ entries:
     version: 0.1.0
   helm-repo:
   - appVersion: "2.4"
-    created: 2017-11-23T10:27:32.072475799+08:00
+    created: 2017-12-07T15:39:14.358325263+08:00
     description: Apache httpd served as Helm repository
     digest: e023fb97441cac388eb5ac239f99d073af467e5d5b50dda8d05d6f90dbbb5d17
     keywords:
@@ -34,9 +34,9 @@ entries:
     version: 0.1.0
   jupyter:
   - apiVersion: v1
-    created: 2017-11-23T10:27:32.072973623+08:00
+    created: 2017-12-07T15:39:14.358583946+08:00
     description: Helm chart for Jupyter
-    digest: cac31c92ad1b44a131e0c80a5495e4fec6bf5b7db66888173c367cdc2370aa73
+    digest: 4ea3bb4d8e7213b448e7ba376d8f5435e096a8f82f56681174f73f4f05055bfd
     name: jupyter
     urls:
     - jupyter-1.0.0.tgz
@@ -44,7 +44,7 @@ entries:
   kube-state-metrics:
   - apiVersion: v1
     appVersion: 1.0.1
-    created: 2017-11-23T10:27:32.073296109+08:00
+    created: 2017-12-07T15:39:14.359550684+08:00
     description: Install kube-state-metrics to generate and expose cluster-level metrics
     digest: 9b2ad2c0f9cbcfea44c35c457dc7b16022fa740f30994c0b9dfb833f6d6fa2fb
     home: https://github.com/kubernetes/kube-state-metrics/
@@ -63,7 +63,7 @@ entries:
     version: 0.3.1
   kubernetes-dashboard:
   - appVersion: 1.6.3
-    created: 2017-11-23T10:27:32.073806531+08:00
+    created: 2017-12-07T15:39:14.360435324+08:00
     description: General-purpose web UI for Kubernetes clusters
     digest: 952213a2acc82e06a902c2c3f67cd0cb30f8e390ee8b355307f89d3376e19b50
     keywords:
@@ -77,7 +77,7 @@ entries:
     - kubernetes-dashboard-0.1.2.tgz
     version: 0.1.2
   mysql:
-  - created: 2017-11-23T10:27:32.074454693+08:00
+  - created: 2017-12-07T15:39:14.36141753+08:00
     description: Fast, reliable, scalable, and easy to use open-source relational
       database system.
     digest: 18c572dc687f06de4fa336adb02ab405c4695f542d012e2df87a7d28b9ba7be3
@@ -99,7 +99,7 @@ entries:
     - mysql-0.2.9.tgz
     version: 0.2.9
   rstudio:
-  - created: 2017-11-23T10:27:32.074896441+08:00
+  - created: 2017-12-07T15:39:14.361935335+08:00
     description: A R language tool named rstudio
     digest: 60ee22eb0edb31b58bc214e627a83a3b5a3d0ae88acb29fc7202fabb682c57c9
     home: https://github.com/rstudio
@@ -114,11 +114,11 @@ entries:
     version: 1.0.0
   zeppelin:
   - apiVersion: v1
-    created: 2017-11-23T10:27:32.075290127+08:00
+    created: 2017-12-07T15:39:14.362310236+08:00
     description: Helm chart for Zeppelin
-    digest: bb5dfed6c3449d5798df5dc3f17effd61e6bef5e7525e7c60b05c9d4dc71f192
+    digest: b53fe4f3c3d0819099317b0888d3037b45982722672f33463431e05b03d6a0f2
     name: zeppelin
     urls:
     - zeppelin-1.0.0.tgz
     version: 1.0.0
-generated: 2017-11-23T10:27:32.069507059+08:00
+generated: 2017-12-07T15:39:14.356819401+08:00
