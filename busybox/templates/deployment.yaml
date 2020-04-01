@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "name" . }}
+    release: {{ .Release.Name }}
+spec:
+  replicas: "{{ .Values.replicas }}"
+  template:
+    metadata:
+      labels:
+        app: {{ template "name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+# TODO: set imagePullPolicy to IfNotPresent
+        command:
+        - sleep
+        - "3600"
+ # restartPolicy: Always
